@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root 'developers#index'
   resources :projects
   resources :developers
