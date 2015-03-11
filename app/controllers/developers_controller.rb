@@ -1,10 +1,10 @@
 class DevelopersController < ApplicationController
-
+# skip_before_action :authorize, only: [:new, :create, :index]
   def create
     @developer = Developer.new(developer_params)
     if @developer.save
       respond_to do |format|
-        format.html { redirect_to(@developer, notice: 'User was successfully created.') }
+        format.html { redirect_to(@developers, notice: 'User was successfully created.') }
       end
     else
       render :new
