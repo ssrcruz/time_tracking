@@ -1,0 +1,29 @@
+<h2>Create developer</h2>
+<% if @developer.errors.any? %>
+<div id="error_explanation">
+  <h2>Developer cannot be created</h2>
+  <ul>
+    <% @developer.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<%= form_for @developer do |c| %>
+<div class="field">
+  <%= c.label :name %>
+  <%= c.text_field :name %>
+</div>
+
+<div class="field">
+  <%= c.label :email %>
+  <%= c.text_field :email %>
+</div>
+
+<div class="field">
+  <%= c.label :password %>
+  <%= c.text_field :password %>
+</div>
+<%= c.submit "Create developer" %>
+<% end %>

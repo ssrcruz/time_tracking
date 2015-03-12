@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150310221859) do
+ActiveRecord::Schema.define(version: 20150311135850) do
 
   create_table "developers", force: :cascade do |t|
     t.string   "email"
@@ -26,6 +26,15 @@ ActiveRecord::Schema.define(version: 20150310221859) do
     t.decimal  "max_hours"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "time_entries", force: :cascade do |t|
+    t.integer  "developer_id"
+    t.integer  "project_id"
+    t.decimal  "duration"
+    t.date     "worked_on"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
 end

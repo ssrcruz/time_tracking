@@ -1,0 +1,29 @@
+<%= form_for(@project) do |c| %>
+<% if @project.errors.any? %>
+  <div id="error_explanation">
+    <h2>project cannot be created</h2>
+    <ul>
+    <% @project.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+  <div class="field">
+    <%= c.label :name %>
+    <%= c.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= c.label :max_hours %>
+    <%= c.number_field :max_hours %>
+  </div>
+
+  <div class="actions">
+  <%= c.submit "Create project" %>
+  </div>
+<% end %>
+
+<p><%= link_to 'logout', logout_path %></p>

@@ -1,10 +1,12 @@
 class DevelopersController < ApplicationController
-# skip_before_action :authorize, only: [:new, :create, :index]
+  before_action :set_developer, only: [:edit, :update, :destroy]
+  before_action :authenticate_user, except: [:new, :create]
+
   def create
     @developer = Developer.new(developer_params)
     if @developer.save
       respond_to do |format|
-        format.html { redirect_to(@developers, notice: 'User was successfully created.') }
+        format.html { redirect_to(developers_path, notice: 'User was successfully created.') }
       end
     else
       render :new
@@ -20,21 +22,37 @@ class DevelopersController < ApplicationController
   end
 
   def edit
+    @developer = Developer.find(params[:id])
   end
 
   def show
-    # @developer = Developer.find(params[:id])
+
   end
 
   def update
+    if @developer.update(developer_params)
+      redirect_to developers_path, notice: 'Developer was successfully updated'
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @developer.destroy
+    redirect_to developers_url, notice: 'Developer was successfully destroyed'
   end
 
   private
 
+  def set_developer
+    @developer = Developer.find(session[:developer_id])
+  end
+
   def developer_params
     params.require(:developer).permit(:name, :email, :password)
+  end
+
+  def make_session(developer)
+    session[:author_id] = author.id
   end
 end

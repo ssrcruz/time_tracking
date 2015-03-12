@@ -1,0 +1,33 @@
+<p><%= link_to 'Logout', logout_path %></p>
+
+<% if notice %>
+<p id="notice"> <%= notice %></p>
+<% end %>
+
+<h1>Listing Time Entries</h1>
+<table>
+  <tr>
+    <th>Developer</th>
+    <th>Project</th>
+    <th>Duration</th>
+    <th>Worked On</th>
+  </tr>
+  <tbody>
+    <% @time_entries.each do |time| %>
+      <tr>
+        <td><%= time.developer_id %></td>
+        <td><%= time.project_id %></td>
+        <td><%= time.duration %></td>
+        <td><%= time.worked_on %></td>
+        <td><%= link_to 'Edit', edit_time_entry_path(time) %></td>
+        <td><%= link_to 'Delete', time, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+<td><%= link_to 'New Time Entry', new_time_entry_path %></td>
+<td><%= link_to 'New Project', new_project_path %></td>
+<td><%= link_to 'New Developer', new_developer_path %></td>

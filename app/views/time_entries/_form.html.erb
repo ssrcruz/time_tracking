@@ -1,0 +1,38 @@
+<%= form_for @time_entry do |c| %>
+<% if @time_entry.errors.any? %>
+    <div id="error_explanation">
+      <h2>Time entry cannot be created</h2>
+    <ul>
+      <% @time_entry.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+  <h2>Create Time Entry</h2>
+  <div class="field">
+    <%= c.label :developer_id %>
+    <%= c.number_field :developer_id %>
+  </div>
+
+  <div class="field">
+    <%= c.label :project_id %>
+    <%= c.number_field :project_id %>
+  </div>
+  <div class="field">
+    <%= c.label :duration %>
+    <%= c.number_field :duration %>
+  </div>
+
+  <div class="field">
+    <%= c.label :worked_on %>
+    <%= c.date_field :worked_on %>
+  </div>
+
+  <div class="actions">
+    <%= c.submit "Create Time Entry" %>
+  </div>
+<% end %>
+
+<p><%= link_to 'logout', logout_path %></p>

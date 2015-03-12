@@ -1,15 +1,29 @@
-<h1>Listing developers</h1>
 <% if notice %>
 <p id="notice"> <%= notice %></p>
 <% end %>
+<p><%= link_to 'logout', logout_path %></p>
+
+<h1>Listing developers</h1>
+
 <table>
   <tr>
     <th>Name</th>
     <th>Email</th>
   </tr>
 
-<% @developers.each do |dev| %>
-  <td><%= dev.name %></td>
-  <td><%= dev.email %></td>
-<% end %>
+  <tbody>
+    <% @developers.each do |dev| %>
+      <tr>
+        <td><%= dev.name %></td>
+        <td><%= dev.email %></td>
+
+        <td><%= link_to 'Edit', edit_developer_path(dev) %></td>
+        <td><%= link_to 'Delete', dev, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
+
+<td><%= link_to 'New Developer', new_developer_path %></td>
+<td><%= link_to 'New Project', new_project_path %></td>
+<td><%= link_to 'New Time Entry', new_time_entry_path %></td>
