@@ -5,4 +5,5 @@ class TimeEntry < ActiveRecord::Base
   validates :project_id, presence: true
   validates :duration, presence: true
   validates :worked_on, presence: true
+
 end

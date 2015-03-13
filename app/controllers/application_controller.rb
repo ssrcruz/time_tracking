@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user
     if session[:developer_id]
-      @current_developer = Developer.find(session[:developer_id])
+      @current_developer = Developer.find_by_id(session[:developer_id])
       return true
     else
       flash[:notice] = "You must log in to see that page"

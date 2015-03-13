@@ -45,7 +45,7 @@ class DevelopersController < ApplicationController
   private
 
   def set_developer
-    @developer = Developer.find(session[:developer_id])
+    @developer = Developer.find_by(session[:developer_id])
   end
 
   def developer_params
@@ -53,6 +53,6 @@ class DevelopersController < ApplicationController
   end
 
   def make_session(developer)
-    session[:author_id] = author.id
+    session[:developer_id] = developer.id
   end
 end

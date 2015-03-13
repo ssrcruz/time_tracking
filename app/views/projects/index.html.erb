@@ -12,6 +12,7 @@
   <tr>
     <th>Name</th>
     <th>Max Hours Allowed</th>
+    <th>Total Hours Worked</th>
   </tr>
 
   <tbody>
@@ -19,7 +20,7 @@
       <tr>
         <td><%= project.name %></td>
         <td><%= project.max_hours %></td>
-
+        <td><%= project.hour_count %></td>
 
         <td><%= link_to 'Edit', edit_project_path(project) %></td>
         <td><%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>

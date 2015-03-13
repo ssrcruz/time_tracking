@@ -13,12 +13,12 @@
   <h2>Create Time Entry</h2>
   <div class="field">
     <%= c.label :developer_id %>
-    <%= c.number_field :developer_id %>
+    <%= c.collection_select(:developer_id, Developer.all, :id, :name )%>
   </div>
 
   <div class="field">
     <%= c.label :project_id %>
-    <%= c.number_field :project_id %>
+    <%= c.collection_select(:project_id, Project.all, :id, :name )%>
   </div>
   <div class="field">
     <%= c.label :duration %>

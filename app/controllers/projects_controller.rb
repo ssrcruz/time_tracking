@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
     @projects = Project.new(project_params)
     respond_to do |format|
       if @projects.save
-        format.html { redirect_to @projects, notice: 'Project was successfully created.' }
+        format.html { redirect_to projects_path, notice: 'Project was successfully created.' }
       else
         format.html { render :new }
       end

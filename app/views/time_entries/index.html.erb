@@ -15,8 +15,8 @@
   <tbody>
     <% @time_entries.each do |time| %>
       <tr>
-        <td><%= time.developer_id %></td>
-        <td><%= time.project_id %></td>
+        <td><%= time.developer.name %></td>
+        <td><%= time.project.name %></td>
         <td><%= time.duration %></td>
         <td><%= time.worked_on %></td>
         <td><%= link_to 'Edit', edit_time_entry_path(time) %></td>

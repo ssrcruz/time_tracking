@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       make_session(developer)
       redirect_to projects_path
     else
-      flash[:error] = 'Invalid email/password combination'
+      flash.now[:error] = 'Invalid email/password combination'
       render 'new'
     end
   end
