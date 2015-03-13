@@ -1,19 +1,30 @@
-<div>
 <% if flash[:error] %>
 <p id ="notice"><%= flash[:error] %> </p>
 <% end %>
+<h1> Time Tracking <h1>
 <%= form_tag :action => :create do %>
-<fieldset>
+
   <legend>Please Log In or <%= link_to 'Create New Developer', new_developer_path %></legend>
-  <div>
-    <%= label_tag :email %>
-    <%= text_field_tag :email %>
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
+
+
+
+
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">
+      <%= label_tag :email %>
+      <%= text_field_tag :email %>
+      </label>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
   </div>
-  <div>
-    <%= submit_tag "Login" %>
+  <div class="form-group">
+    <label for="exampleInputPassword1">
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+    </label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
   </div>
-</fieldset>
+
+  <button type="submit" class="btn btn-default"><%= submit_tag "Login" %></button>
+</form>
 <% end %>
-</div>

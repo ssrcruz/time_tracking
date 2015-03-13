@@ -1,11 +1,11 @@
 <% if notice %>
 <p id="notice"> <%= notice %></p>
 <% end %>
-<p><%= link_to 'logout', logout_path %></p>
+
 
 <h1>Listing developers</h1>
 
-<table>
+<table class="table table-bordered">
   <tr>
     <th>Name</th>
     <th>Email</th>
@@ -27,3 +27,5 @@
 <td><%= link_to 'New Developer', new_developer_path %></td>
 <td><%= link_to 'New Project', new_project_path %></td>
 <td><%= link_to 'New Time Entry', new_time_entry_path %></td>
+
+<%= link_to "Logout", login_path %>
